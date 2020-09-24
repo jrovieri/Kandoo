@@ -4,7 +4,8 @@
     --red-hover: rgba(255, 5, 5, 0.85);
     --main-red: rgba(245, 5, 5, 0.85);
     --main-white: #FFFFFF;
-    --main-grey: rgba(117, 117, 117, 0.3);
+    --main-grey: rgba(117, 117, 117, 0.09);
+    --main-blue: #002B99;
 }
 
 * {
@@ -50,6 +51,10 @@ header ul li {
     background-color: transparent;
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 .fas, .far {
     font-size: 2em;
     color: var(--main-white);
@@ -84,7 +89,6 @@ button {
     z-index: 5;
     right: 0;
     display: none;
-    background-color: var(--main-grey);
 }
 
 .lateral-menu-opc {
@@ -103,7 +107,6 @@ button {
     left: 16vw;
     width: 68vw;
     border-radius: 0.5em;
-    background-color: var(--main-grey);
 }
 
 #content h2{
@@ -121,18 +124,100 @@ button {
 .content-card {
     padding: 0.5em;
     margin-top: 2em;
-    width: 19.5vw;
+    width: 20vw;
     height: 72vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-shadow-color:#a35a8d;
     text-align: center;
-    background-color: var(--main-white);
+    border: 0.09em solid black;
+    border-radius: 1em;
+    background-color: var(--main-grey);
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.title-card{
+    position: relative;
+    margin:1vh auto;
+}
+
+.title-card h3 {
+    margin: 0 0 2vh 0;
 }
 
 .button-plus {
-    position: relative;
-    top: -10vh;
-    left: 8vw;
+    padding: 0.5em;
+    position: absolute;
+    top: -1.3vh;
+    left: 17vw;
 }
 
 .fa-plus-circle {
     color: var(--main-red);
+}
+
+.newTaskDescription {
+    display: none;
+    margin: 3vh auto;
+}
+
+.newTaskDescription input {
+    width: 18vw;
+    box-sizing: content-box;
+    outline: none;
+    font-size: 1em;
+}
+
+.newTaskDescription button {
+    margin: 1vh;
+    width: 6vw;
+    font-size: 1.1em;
+}
+
+.newTaskDescription button:hover {
+    cursor: pointer;
+}
+
+.saveNewTask{
+    margin-right: 10px;
+    color: #FFFFFF;
+    background-color: var(--main-blue);
+}
+
+.discardNewTask {
+    background-color: var(--main-white);
+}
+
+.task {
+    display: flex;
+    margin: 3vh 2vh 0 0;
+}
+
+.task span {
+    text-align: left;
+}
+
+.task .fas {
+    font-size: 1.4em;
+}
+
+.doing-flag {
+    color: yellow;
+}
+
+.todo-flag {
+    color: red;
+}
+
+.done-flag {
+    color: green;
 }

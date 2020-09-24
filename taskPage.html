@@ -29,21 +29,41 @@
 
     <section id="content">
         <section class="content-card">
-            <h3>PARA FAZER </h3>
-            <button id="new-task-todo" class="button-plus icon">
-                <i class="fas fa-plus-circle"></i></button>
+            <div class="title-card"><h3>PARA FAZER</h3>
+                <button id="new-task-todo" class="button-plus icon">
+                <i class="fas fa-plus-circle"></i></button></div>
+            <div class="newTaskDescription">
+                <input type="text" id="todo-description" placeholder="Digite a nova atividade">
+                <button class="saveNewTask">Salvar</button>
+                <button class="discardNewTask">Descartar</button>
+            </div>
+            <div class="task-card"></div>
         </section>
 
         <section class="content-card">
-            <h3>EM ANDAMENTO</h3>
-            <button id="new-task-doing" class="button-plus icon">
+            <div class="title-card"><h3>EM ANDAMENTO</h3>
+                <button id="new-task-doing" class="button-plus icon">
                 <i class="fas fa-plus-circle"></i></button>
+            </div>
+            <div class="newTaskDescription">
+                <input type="text" id="doing-description" placeholder="Digite a nova atividade">
+                <button class="saveNewTask">Salvar</button>
+                <button class="discardNewTask">Descartar</button>
+            </div>
+            <div class="task-card"></div>
         </section>
 
         <section class="content-card">
-            <h3>CONQUISTADA</h3>
-            <button id="new-task-done" class="button-plus icon">
+            <div class="title-card"><h3>CONQUISTADA</h3>
+               <button id="new-task-done" class="button-plus icon">
                 <i class="fas fa-plus-circle"></i></button>
+            </div>
+            <div class="task-card"></div>
+            <div class="newTaskDescription">
+                <input type="text" id="done-description" placeholder="Digite a nova atividade">
+                <button class="saveNewTask">Salvar</button>
+                <button class="discardNewTask">Descartar</button>
+            </div>
         </section>
     </section>
 
@@ -52,7 +72,7 @@
         <button id="new-project" class="lateral-menu-opc">Novo projeto</button>
     </section>
 
-<script src="script/main.js"></script>
+<script src="script/taskPage.js"></script>
 <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
 </body>
 </html>
