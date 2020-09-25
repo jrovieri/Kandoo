@@ -47,11 +47,8 @@ function addTask (taskType, btnflag, textDescription) {
             textDescription.value = "";
         }
     })
-}
-
-function btnDiscard (taskType) {
     discardNewTask[taskType].addEventListener("click", () => {
-        showOrHideDisplay(newTaskDescription[taskType])
+        newTaskDescription[taskType].style.display = "none";
     });
 }
 

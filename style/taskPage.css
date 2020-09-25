@@ -51,10 +51,6 @@ header ul li {
     background-color: transparent;
 }
 
-.icon:hover {
-    cursor: pointer;
-}
-
 .fas, .far {
     font-size: 2em;
     color: var(--main-white);
@@ -63,6 +59,7 @@ header ul li {
 button {
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 
@@ -188,10 +185,6 @@ button {
     border-bottom-right-radius: 8px;
 }
 
-.newTaskDescription button:hover {
-    cursor: pointer;
-}
-
 .task {
     display: flex;
     margin: 3vh 2vh 0 0;
@@ -280,5 +273,3 @@ button {
         width: 57vw;
     }
 }
-
-@media (max-width: 560px)
