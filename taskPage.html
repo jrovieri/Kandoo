@@ -23,47 +23,55 @@
     </header>
 
     <section class="lateral-menu" id="lateral-menu-left">
-        <h3>Lista de projetos</h3>
+        <h3>Projetos</h3>
         <button class="lateral-menu-opc">Primeiro projeto</button>
     </section>
 
     <section id="content">
-        <section class="content-card">
+        <section class="content-card card-todo">
             <div class="title-card"><h3>PARA FAZER</h3>
-                <button id="new-task-todo" class="button-plus icon">
-                <i class="fas fa-plus-circle"></i></button></div>
+                <div><button id="new-task-todo" class="button-plus icon">
+                    <i class="fas fa-plus-circle"></i></button></div>
+                </div>
             <div class="newTaskDescription">
-                <input type="text" id="todo-description" placeholder="Digite a nova atividade">
+                <i class="fas fa-flag todo-flag task-flag"></i>
+                <input type="text" id="todo-description" placeholder="Nova atividade">
                 <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Descartar</button>
+                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
         </section>
 
-        <section class="content-card">
+        <section class="content-card card-doing">
             <div class="title-card"><h3>EM ANDAMENTO</h3>
-                <button id="new-task-doing" class="button-plus icon">
-                <i class="fas fa-plus-circle"></i></button>
+                <div>
+                    <button id="new-task-doing" class="button-plus icon">
+                    <i class="fas fa-plus-circle"></i></button>
+                </div>
             </div>
             <div class="newTaskDescription">
-                <input type="text" id="doing-description" placeholder="Digite a nova atividade">
+                <i class="fas fa-flag doing-flag task-flag"></i>
+                <input type="text" id="doing-description" placeholder="Nova atividade">
                 <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Descartar</button>
+                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
         </section>
 
-        <section class="content-card">
+        <section class="content-card card-done">
             <div class="title-card"><h3>CONQUISTADA</h3>
-               <button id="new-task-done" class="button-plus icon">
-                <i class="fas fa-plus-circle"></i></button>
+                <div>
+                    <button id="new-task-done" class="button-plus icon">
+                        <i class="fas fa-plus-circle"></i></button>
+                </div>
+            </div>
+            <div class="newTaskDescription">
+                <i class="fas fa-flag done-flag task-flag"></i>
+                <input type="text" id="done-description" placeholder="Nova atividade">
+                <button class="saveNewTask">Salvar</button>
+                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
-            <div class="newTaskDescription">
-                <input type="text" id="done-description" placeholder="Digite a nova atividade">
-                <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Descartar</button>
-            </div>
         </section>
     </section>
 
