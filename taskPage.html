@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kandoo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/taskPage.css">
 </head>
 <body>
@@ -24,7 +23,19 @@
 
     <section class="lateral-menu" id="lateral-menu-left">
         <h3>Projetos</h3>
-        <button class="lateral-menu-opc">Primeiro projeto</button>
+        <nav class="projects-list">
+            <ul>
+                <li class="project-menu">
+                    <button class="lateral-menu-options">
+                        Primeiro projeto
+                        <i class="fas fa-sort-up"></i></button>
+                    <li><button>Geral<i class="fas fa-flag general-flag menu-flag"></i></button></li>
+                    <li><button>Para fazer<i class="fas fa-flag todo-flag menu-flag"></i></button></li>
+                    <li><button>Em andamento<i class="fas fa-flag doing-flag menu-flag"></i></button></li>
+                    <li><button>Conquistada<i class="fas fa-flag done-flag menu-flag"></i></button></li>
+                </li>
+            </ul>
+        </nav>
     </section>
 
     <section id="content">
