@@ -22,11 +22,8 @@ const newTaskToDo = document.getElementById("new-task-todo");
 const newTaskDoing = document.getElementById("new-task-doing"); 
 const newTaskDone = document.getElementById("new-task-done");
 const newTaskDescription = document.querySelectorAll(".newTaskDescription");
-const saveNewTask = document.querySelectorAll(".saveNewTask");
-const discardNewTask = document.querySelectorAll(".discardNewTask");
 
 function addTask (taskType, btnflag, textDescription) {
-    saveNewTask[taskType].addEventListener("click", () => {
         if(textDescription.value != 0) {
             let flag = document.createElement("button");
             let icon = document.createElement("i");
@@ -46,30 +43,23 @@ function addTask (taskType, btnflag, textDescription) {
             showOrHideDisplay(newTaskDescription[taskType])
             textDescription.value = "";
         }
-    })
-    discardNewTask[taskType].addEventListener("click", () => {
-        newTaskDescription[taskType].style.display = "none";
-    });
 }
 
 newTaskToDo.addEventListener("click", () => {
     const toDoDescription = document.getElementById("todo-description");
     showOrHideDisplay(newTaskDescription[0]);
     addTask(0, "todo-flag", toDoDescription);
-    btnDiscard(0);
 });
 
 newTaskDoing.addEventListener("click", () => {
     const doingDescription = document.getElementById("doing-description");
     showOrHideDisplay(newTaskDescription[1]);
     addTask(1, "doing-flag", doingDescription);
-    btnDiscard(1);
 });
 
 newTaskDone.addEventListener("click", () => {
     let doneDescription = document.getElementById("done-description");
     showOrHideDisplay(newTaskDescription[2]);
     addTask(2, "done-flag", doneDescription);
-    btnDiscard(2);
 });
 

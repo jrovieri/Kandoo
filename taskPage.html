@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kandoo</title>
-    <link rel="stylesheet" href="style/taskPage.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
+<body id="taskPage">
     <header>
-        <button class="home-icon icon"><i class="fas fa-home"></i></button>
+        <button class="home-icon icon">
+            <i class="fas fa-home"></i>
+        </button>
         
         <i class="fas fa-flag"></i><h1>Kandoo</h1>
 
@@ -26,13 +28,25 @@
         <nav class="projects-list">
             <ul>
                 <li class="project-menu">
-                    <button class="lateral-menu-options">
+                    <button class="menu-options">
                         Primeiro projeto
-                        <i class="fas fa-sort-up"></i></button>
-                    <li><button>Geral<i class="fas fa-flag general-flag menu-flag"></i></button></li>
-                    <li><button>Para fazer<i class="fas fa-flag todo-flag menu-flag"></i></button></li>
-                    <li><button>Em andamento<i class="fas fa-flag doing-flag menu-flag"></i></button></li>
-                    <li><button>Conquistada<i class="fas fa-flag done-flag menu-flag"></i></button></li>
+                    <div><i class="fas fa-sort-up menu-arrow"></i></div>
+                    </button>
+                    <li class="project-menu-item">
+                        <button>Geral<i class="fas fa-flag general-flag menu-flag"></i></button>
+                    </li>
+
+                    <li class="project-menu-item">
+                        <button>Para fazer<i class="fas fa-flag todo-flag menu-flag"></i></button>
+                    </li>
+
+                    <li class="project-menu-item">
+                        <button>Em andamento<i class="fas fa-flag doing-flag menu-flag"></i></button>
+                    </li>
+
+                    <li class="project-menu-item">
+                        <button>Conquistada<i class="fas fa-flag done-flag menu-flag"></i></button>
+                    </li>
                 </li>
             </ul>
         </nav>
@@ -47,8 +61,6 @@
             <div class="newTaskDescription">
                 <i class="fas fa-flag todo-flag task-flag"></i>
                 <input type="text" id="todo-description" placeholder="Nova atividade">
-                <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
         </section>
@@ -63,8 +75,6 @@
             <div class="newTaskDescription">
                 <i class="fas fa-flag doing-flag task-flag"></i>
                 <input type="text" id="doing-description" placeholder="Nova atividade">
-                <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
         </section>
@@ -79,8 +89,6 @@
             <div class="newTaskDescription">
                 <i class="fas fa-flag done-flag task-flag"></i>
                 <input type="text" id="done-description" placeholder="Nova atividade">
-                <button class="saveNewTask">Salvar</button>
-                <button class="discardNewTask">Excluir</button>
             </div>
             <div class="task-card"></div>
         </section>
@@ -88,10 +96,12 @@
 
     <section class="lateral-menu" id="lateral-menu-right">
         <h3>Configurações</h3>
-        <button id="new-project" class="lateral-menu-opc">Novo projeto</button>
+        <ul>
+            <li><button id="new-project" class="menu-options">Novo projeto</button></li>
+        </ul>
     </section>
 
-<script src="script/taskPage.js"></script>
+<script src="script/main.js"></script>
 <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
 </body>
 </html>
