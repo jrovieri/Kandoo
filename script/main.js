@@ -45,7 +45,7 @@ btnNewProject.addEventListener("click", () => {
     //Card: to do
     let toDoCard = document.createElement("section");
     toDoCard.setAttribute("class", "content-card card-todo");
-    toDoCard.className += " " + projectClass; //what if I change it to card-todoprojectClass?
+    toDoCard.id = "card-todo" + projectClass;
     content.appendChild(toDoCard)
 
     let titleToDoCard = document.createElement("div");
@@ -56,6 +56,7 @@ btnNewProject.addEventListener("click", () => {
     let btnPlusToDoCard = document.createElement("button");
     btnPlusToDoCard.setAttribute("class", "button-plus icon");
     btnPlusToDoCard.id="new-task-todo"+projectClass;
+    btnPlusToDoCard.setAttribute("onclick", "btnAddNewTask(this)");
     titleToDoCard.appendChild(btnPlusToDoCard)
 
     let btnPlusToDoCardIcon = document.createElement("i");
@@ -63,7 +64,8 @@ btnNewProject.addEventListener("click", () => {
     btnPlusToDoCard.appendChild(btnPlusToDoCardIcon)
 
     let addNewTaskToDo = document.createElement("div");
-    addNewTaskToDo.setAttribute("class", "newTaskDescription")
+    addNewTaskToDo.setAttribute("class", "newTaskDescription");
+    addNewTaskToDo.id = "newTaskDescriptionToDo"+projectClass;
     toDoCard.appendChild(addNewTaskToDo);
 
     let addNewTaskToDoFlag = document.createElement("i");
@@ -83,7 +85,7 @@ btnNewProject.addEventListener("click", () => {
     //Card: doing
     let doingCard = document.createElement("section");
     doingCard.setAttribute("class", "content-card card-doing");
-    doingCard.className += " " + projectClass;
+    doingCard.id = "card-doing" + projectClass;
     content.appendChild(doingCard)
 
     let titleDoingCard = document.createElement("div");
@@ -94,6 +96,7 @@ btnNewProject.addEventListener("click", () => {
     let btnPlusDoingCard = document.createElement("button");
     btnPlusDoingCard.setAttribute("class", "button-plus icon");
     btnPlusDoingCard.id = "new-task-doing"+projectClass;
+    btnPlusDoingCard.setAttribute("onclick", "btnAddNewTask(this)");
     titleDoingCard.appendChild(btnPlusDoingCard)
 
     let btnPlusDoingCardIcon = document.createElement("i");
@@ -102,6 +105,7 @@ btnNewProject.addEventListener("click", () => {
 
     let addNewTaskDoing = document.createElement("div");
     addNewTaskDoing.setAttribute("class", "newTaskDescription")
+    addNewTaskDoing.id = "newTaskDescriptionDoing"+projectClass;
     doingCard.appendChild(addNewTaskDoing);
 
     let addNewTaskDoingFlag = document.createElement("i");
@@ -121,7 +125,7 @@ btnNewProject.addEventListener("click", () => {
     //Card: done
     let doneCard = document.createElement("section");
     doneCard.setAttribute("class", "content-card card-done");
-    doneCard.className += " " + projectClass;
+    doneCard.id = "card-done" + projectClass;
     content.appendChild(doneCard)
 
     let titleDoneCard = document.createElement("div");
@@ -132,6 +136,7 @@ btnNewProject.addEventListener("click", () => {
     let btnPlusDoneCard = document.createElement("button");
     btnPlusDoneCard.setAttribute("class", "button-plus icon");
     btnPlusDoneCard.id ="new-task-done"+projectClass;
+    btnPlusDoneCard.setAttribute("onclick", "btnAddNewTask(this)");
     titleDoneCard.appendChild(btnPlusDoneCard)
 
     let btnPlusDoneCardIcon = document.createElement("i");
@@ -140,6 +145,7 @@ btnNewProject.addEventListener("click", () => {
 
     let addNewTaskDone = document.createElement("div");
     addNewTaskDone.setAttribute("class", "newTaskDescription")
+    addNewTaskDone.id = "newTaskDescriptionDone"+projectClass;
     doneCard.appendChild(addNewTaskDone);
 
     let addNewTaskDoneFlag = document.createElement("i");
@@ -165,7 +171,7 @@ btnNewProject.addEventListener("click", () => {
     let menuOptionsBtn = document.createElement("button");
     menuOptionsBtn.setAttribute("class", "menu-options");
     menuOptionsBtn.id = projectClass;
-    menuOptionsBtn.setAttribute("onclick", "showMenu(this)");
+    menuOptionsBtn.setAttribute("onclick", "showOrHideMenu(this)");
     menuOptionsBtn.innerHTML = "Project name" //TO INSERT(modal-input value) `${projectName}`
     projectMenu.appendChild(menuOptionsBtn)
 
@@ -218,7 +224,7 @@ btnNewProject.addEventListener("click", () => {
 })
 
 //Show/hide project menu
-function showMenu(btnSelectedId) {
+function showOrHideMenu(btnSelectedId) {
     let projectBtnId = btnSelectedId.id;
     let project = document.getElementById(projectBtnId);
     let projectMenuItems = Array.from(project.parentElement.children).slice(1)
@@ -235,55 +241,64 @@ function showMenu(btnSelectedId) {
     }
 }
 
-//ADD new task - To refactor, doesn't work anymore
-//**ALERT: new reference = const newTaskToDo = document.getElementById("new-task-todo"+projectClass);*/
+//ADD new task
+function addTask (card, btnflag, inputDescription, taskDescription) {
+    document.addEventListener('keydown', function(k){
+        if(k.key == "Enter"){
+        if(inputDescription.value != 0) {
+            let newTask = document.createElement("div");
+            newTask.setAttribute("class", "task");
+            card.appendChild(newTask);
 
-// const taskCard = document.querySelectorAll(".task-card");
-// const newTaskToDo = document.getElementById("new-task-todo");
-// const newTaskDoing = document.getElementById("new-task-doing"); 
-// const newTaskDone = document.getElementById("new-task-done");
-// const newTaskDescription = document.querySelectorAll(".newTaskDescription");
+            let flag = document.createElement("button");
+            let icon = document.createElement("i");
+            icon.setAttribute("class", "fas fa-flag");
+            icon.classList.add(btnflag);
+            newTask.appendChild(flag);
+            flag.appendChild(icon);
 
-// function addTask (taskType, btnflag, textDescription) {
-//     document.addEventListener('keydown', function(k){
-//         if(k.key == "Enter"){
-//         if(textDescription.value != 0) {
-//             let flag = document.createElement("button");
-//             let icon = document.createElement("i");
-//             icon.setAttribute("class", "fas fa-flag");
-//             icon.classList.add(btnflag);
-//             newTask.appendChild(flag);
-//             flag.appendChild(icon);
+            description = document.createElement("span");
+            description.innerHTML = inputDescription.value;
+            newTask.appendChild(description);
 
-//             description = document.createElement("span");
-//             description.innerHTML = textDescription.value;
-//             newTask.appendChild(description);
+            showOrHideDisplay(taskDescription)
+            inputDescription.value = "";
+        }
+    }
+});
+}
 
-//             let newTask = document.createElement("div");
-//             newTask.setAttribute("class", "task");
-//             taskCard[taskType].appendChild(newTask);
+//**To implement: erase input if taskDescript is hide, and hide if click outside it*****/
+function btnAddNewTask(btnPlusSelected){
+    let btnPLusId = btnPlusSelected.id; 
+    let typeOfNewTask = btnPLusId.substr(0, 13); //new-task-: todo, doin, done
+    let currentProjectClass = btnPLusId.substr(-10);
+    let taskDescription;
+    let inputDescription;
+    let card;
+    switch (typeOfNewTask){
+        case "new-task-todo":
+        taskDescription = document.getElementById("newTaskDescriptionToDo"+currentProjectClass);
+        inputDescription = document.getElementById("todo-description"+currentProjectClass);
+        card = document.getElementById("card-todo"+currentProjectClass);
+        showOrHideDisplay(taskDescription);
+        addTask (card, "todo-flag", inputDescription, taskDescription);
+        break;
 
-//             showOrHideDisplay(newTaskDescription[taskType])
-//             textDescription.value = "";
-//         }
-//     }
-// });
-// }
+        case "new-task-doin":
+        taskDescription = document.getElementById("newTaskDescriptionDoing"+currentProjectClass);
+        inputDescription = document.getElementById("doing-description"+currentProjectClass);
+        card = document.getElementById("card-doing"+currentProjectClass);
+        addTask (card, "doing-flag", inputDescription, taskDescription);
+        showOrHideDisplay(taskDescription);
+        break;
 
-// newTaskToDo.addEventListener("click", () => {
-//     const toDoDescription = document.getElementById("todo-description");
-//     showOrHideDisplay(newTaskDescription[0]);
-//     addTask(0, "todo-flag", toDoDescription);
-// });
-
-// newTaskDoing.addEventListener("click", () => {
-//     const doingDescription = document.getElementById("doing-description");
-//     showOrHideDisplay(newTaskDescription[1]);
-//     addTask(1, "doing-flag", doingDescription);
-// });
-
-// newTaskDone.addEventListener("click", () => {
-//     let doneDescription = document.getElementById("done-description");
-//     showOrHideDisplay(newTaskDescription[2]);
-//     addTask(2, "done-flag", doneDescription);
-// });
+        case "new-task-done":
+        taskDescription = document.getElementById("newTaskDescriptionDone"+currentProjectClass);
+        inputDescription = document.getElementById("done-description"+currentProjectClass);
+        card = document.getElementById("card-done"+currentProjectClass);
+        addTask (card, "done-flag", inputDescription, taskDescription);
+        showOrHideDisplay(taskDescription);
+        break;
+    }
+}
