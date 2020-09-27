@@ -18,80 +18,24 @@
             <li><button id="btn-settings" class="menu-icon icon">
                 <i class="fas fa-sliders-h"></i></button>
             </li>
-            <li><button id="btn-sign-out" class="menu-icon icon"><i class="fas fa-sign-out-alt"></i></button></li>
+            <li>
+                <button id="btn-sign-out" class="menu-icon icon">
+                <i class="fas fa-sign-out-alt"></i></button>
+            </li>
         </ul>
 
     </header>
 
     <section class="lateral-menu" id="lateral-menu-left">
         <h3>Projetos</h3>
-        <nav class="projects-list">
-            <ul>
-                <li class="project-menu">
-                    <button class="menu-options">
-                        Primeiro projeto
-                    <div><i class="fas fa-sort-up menu-arrow"></i></div>
-                    </button>
-                    <li class="project-menu-item">
-                        <button>Geral<i class="fas fa-flag general-flag menu-flag"></i></button>
-                    </li>
-
-                    <li class="project-menu-item">
-                        <button>Para fazer<i class="fas fa-flag todo-flag menu-flag"></i></button>
-                    </li>
-
-                    <li class="project-menu-item">
-                        <button>Em andamento<i class="fas fa-flag doing-flag menu-flag"></i></button>
-                    </li>
-
-                    <li class="project-menu-item">
-                        <button>Conquistada<i class="fas fa-flag done-flag menu-flag"></i></button>
-                    </li>
-                </li>
+        <nav>
+            <ul id="projects-list">
+                
             </ul>
         </nav>
     </section>
 
     <section id="content">
-        <section class="content-card card-todo">
-            <div class="title-card"><h3>PARA FAZER</h3>
-                <div><button id="new-task-todo" class="button-plus icon">
-                    <i class="fas fa-plus-circle"></i></button></div>
-                </div>
-            <div class="newTaskDescription">
-                <i class="fas fa-flag todo-flag task-flag"></i>
-                <input type="text" id="todo-description" placeholder="Nova atividade">
-            </div>
-            <div class="task-card"></div>
-        </section>
-
-        <section class="content-card card-doing">
-            <div class="title-card"><h3>EM ANDAMENTO</h3>
-                <div>
-                    <button id="new-task-doing" class="button-plus icon">
-                    <i class="fas fa-plus-circle"></i></button>
-                </div>
-            </div>
-            <div class="newTaskDescription">
-                <i class="fas fa-flag doing-flag task-flag"></i>
-                <input type="text" id="doing-description" placeholder="Nova atividade">
-            </div>
-            <div class="task-card"></div>
-        </section>
-
-        <section class="content-card card-done">
-            <div class="title-card"><h3>CONQUISTADA</h3>
-                <div>
-                    <button id="new-task-done" class="button-plus icon">
-                        <i class="fas fa-plus-circle"></i></button>
-                </div>
-            </div>
-            <div class="newTaskDescription">
-                <i class="fas fa-flag done-flag task-flag"></i>
-                <input type="text" id="done-description" placeholder="Nova atividade">
-            </div>
-            <div class="task-card"></div>
-        </section>
     </section>
 
     <section class="lateral-menu" id="lateral-menu-right">

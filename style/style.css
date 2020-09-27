@@ -120,6 +120,7 @@ button {
 
 /* Projects menu */
 .project-menu-item {
+    display: none;
     text-align: right;
 }
 
@@ -209,7 +210,8 @@ button {
 }
 
 .newTaskDescription input {
-    width: 8vw;
+    width: 80%;
+    transform:translateY(-25%);
     border: none;
     outline: none;
     font-size: 1em;
@@ -236,6 +238,7 @@ button {
     color: green;
 }
 
+/*to update*/
 @media (max-width: 1000px) {
     .lateral-menu {
         width: 16vw;
