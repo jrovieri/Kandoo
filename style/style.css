@@ -154,11 +154,6 @@ button {
     border-radius: 0.5em;
 }
 
-#adicionar label {
-    margin-top: 5vh;
-    width: 30vw;
-}
-
 /* task card */
 .content-card {
     padding: 0.5em;

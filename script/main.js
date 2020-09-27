@@ -159,11 +159,13 @@ btnNewProject.addEventListener("click", () => {
     //Project in menu
     let projectMenu = document.createElement("li");
     projectMenu.setAttribute("class", "project-menu");
+    projectMenu.className += " " + projectClass+"menu";
     projectsList.appendChild(projectMenu);
 
     let menuOptionsBtn = document.createElement("button");
     menuOptionsBtn.setAttribute("class", "menu-options");
     menuOptionsBtn.id = projectClass;
+    menuOptionsBtn.setAttribute("onclick", "showMenu(this)");
     menuOptionsBtn.innerHTML = "Project name" //TO INSERT(modal-input value) `${projectName}`
     projectMenu.appendChild(menuOptionsBtn)
 
@@ -212,13 +214,12 @@ btnNewProject.addEventListener("click", () => {
     projectMenu.appendChild(projectMenuItemFour);
 
     //Example
-    console.log(document.querySelectorAll("."+projectClass))
+    // console.log(document.querySelectorAll("."+projectClass))
 })
 
 //Show/hide project menu
-//** To fix... loop event, even if I just want to capture click on the button project...**/
-projectsList.addEventListener('click', function(e) {
-    let projectBtnId = e.target.id;
+function showMenu(btnSelectedId) {
+    let projectBtnId = btnSelectedId.id;
     let project = document.getElementById(projectBtnId);
     let projectMenuItems = Array.from(project.parentElement.children).slice(1)
     if (project.childNodes[1].classList.contains("fa-sort-down")){
@@ -226,13 +227,13 @@ projectsList.addEventListener('click', function(e) {
         for (let i = 0; i < projectMenuItems.length; i++){
             projectMenuItems[i].style.display = "block"
         }
-    } else {
+    } else{
         project.childNodes[1].setAttribute("class", "fas fa-sort-down menu-arrow");
         for (let i = 0; i < projectMenuItems.length; i++){
             projectMenuItems[i].style.display = "none"
         }
     }
-});
+}
 
 //ADD new task - To refactor, doesn't work anymore
 //**ALERT: new reference = const newTaskToDo = document.getElementById("new-task-todo"+projectClass);*/
