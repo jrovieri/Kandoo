@@ -359,9 +359,12 @@ function showOrHideMenuProject(btnSelectedId) {
     }
 }
 
+/*FIX To implement: erase input if taskDescript is hide, and hide if click outside it
+* Every task should be identified? 
+* Function "onclick" in all task (edit a task - change type, delete..) + randomIdList?
+*/
+
 //ADD new task
-//**FIX To implement: erase input if taskDescript is hide, and hide if click outside it
-//Every task should be identified?
 function addTask (card, btnflag, inputDescription, taskDescription) {
     document.addEventListener('keydown', function(k){
         if(k.key == "Enter"){
