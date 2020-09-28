@@ -106,7 +106,7 @@ button {
     text-align: left;
 }
 
-.menu-arrow {
+.menu-arrow, .menu-left-arrow {
     margin-left: 1vw;
     padding-bottom: 0.3em;
     color: black;
@@ -129,7 +129,7 @@ button {
     font-weight: bold;
     text-align: right;
     font-size: 0.9em;
-    background: rgba(117, 117, 117, 0.08);
+    background-color: rgba(117, 117, 117, 0.08);
 }
 
 .project-menu-item .fa-flag {
@@ -145,13 +145,19 @@ button {
 }
 
 /* Content */
-#content {
+#content, .content-project {
     display: flex;
     justify-content: space-around;
     margin: 2vh auto;
-    height: 86vh;
+    height: 80vh;
     width: 75vw;
     border-radius: 0.5em;
+}
+
+.project-title {
+    margin: 0 auto;
+    position: absolute;
+    top: 10vh;
 }
 
 /* task card */
@@ -239,7 +245,7 @@ button {
         width: 16vw;
     }
 
-    #content {
+    .content-project {
         flex-wrap: wrap;
     }
 
@@ -265,7 +271,7 @@ button {
         width: 19vw;
     }
 
-    #content {
+    .content-project {
         margin-top: 0.5vh;
         width: 60vw;
     }
@@ -283,7 +289,7 @@ button {
 }
 
 @media (max-width: 672px) {
-    #content {
+    .content-project {
         flex-direction: column;
         flex-wrap: nowrap;
     }

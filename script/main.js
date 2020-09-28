@@ -34,19 +34,49 @@ function randomClass () {
     }
 }
 
-//ADD new project ***check condition with modal***
+//ADD new project ***check condition with modal FIX***
 const projectsList = document.getElementById("projects-list");
 const btnNewProject = document.getElementById("new-project");
 const content = document.getElementById("content");
+const contentProjects = document.querySelectorAll("content-project");
+
 btnNewProject.addEventListener("click", () => {
+
+    //hiding other projects
+    for (let i = 0; i<randomClassList.length; i++){
+        document.getElementById(randomClassList[i]).style.display = "none";
+    }
+
+    let allMenuItems = document.querySelectorAll(".project-menu-item");
+    for (let i = 0; i<allMenuItems.length;i++){
+        allMenuItems[i].style.display = "none";
+    }
+
+    let allBtnArrow = document.querySelectorAll(".menu-left-arrow");
+    for (let i = 0; i<allBtnArrow.length; i++){
+        allBtnArrow[i].setAttribute("class", "fas fa-sort-down menu-left-arrow");
+    }
+
     let projectClass = randomClass();
     randomClassList.push(projectClass)
+
+    //Project area
+    let contentProject = document.createElement("section");
+    contentProject.setAttribute("class", "content-project");
+    contentProject.id = projectClass; //reference to view
+    content.appendChild(contentProject);
+
+    let projectTitle = document.createElement("div");
+    projectTitle.className = "project-title"
+    projectTitle.innerHTML =`<h3>*Project name*</h3>` //FIX to insert
+    contentProject.appendChild(projectTitle)
 
     //Card: to do
     let toDoCard = document.createElement("section");
     toDoCard.setAttribute("class", "content-card card-todo");
+    toDoCard.className += " content-card"+projectClass;
     toDoCard.id = "card-todo" + projectClass;
-    content.appendChild(toDoCard)
+    contentProject.appendChild(toDoCard)
 
     let titleToDoCard = document.createElement("div");
     titleToDoCard.setAttribute("class", "title-card");
@@ -85,8 +115,9 @@ btnNewProject.addEventListener("click", () => {
     //Card: doing
     let doingCard = document.createElement("section");
     doingCard.setAttribute("class", "content-card card-doing");
+    doingCard.className += " content-card"+projectClass;
     doingCard.id = "card-doing" + projectClass;
-    content.appendChild(doingCard)
+    contentProject.appendChild(doingCard)
 
     let titleDoingCard = document.createElement("div");
     titleDoingCard.setAttribute("class", "title-card");
@@ -125,8 +156,9 @@ btnNewProject.addEventListener("click", () => {
     //Card: done
     let doneCard = document.createElement("section");
     doneCard.setAttribute("class", "content-card card-done");
+    doneCard.className += " content-card"+projectClass;
     doneCard.id = "card-done" + projectClass;
-    content.appendChild(doneCard)
+    contentProject.appendChild(doneCard)
 
     let titleDoneCard = document.createElement("div");
     titleDoneCard.setAttribute("class", "title-card");
@@ -162,46 +194,59 @@ btnNewProject.addEventListener("click", () => {
     taskDoneCard.className = "task-card";
     doneCard.appendChild(taskDoneCard)
 
-    //Project in menu
+    //Project menu
     let projectMenu = document.createElement("li");
     projectMenu.setAttribute("class", "project-menu");
-    projectMenu.className += " " + projectClass+"menu";
+    projectMenu.id = "projectMenu"+projectClass;
     projectsList.appendChild(projectMenu);
 
     let menuOptionsBtn = document.createElement("button");
     menuOptionsBtn.setAttribute("class", "menu-options");
-    menuOptionsBtn.id = projectClass;
-    menuOptionsBtn.setAttribute("onclick", "showOrHideMenu(this)");
-    menuOptionsBtn.innerHTML = "Project name" //TO INSERT(modal-input value) `${projectName}`
+    menuOptionsBtn.id = "menu-options-btn"+projectClass;
+    menuOptionsBtn.setAttribute("onclick", "showOrHideMenuProject(this)");
+    menuOptionsBtn.innerHTML = "Project name" //FIX TO INSERT(modal-input value) `${projectName}`
     projectMenu.appendChild(menuOptionsBtn)
 
     let menuOptionsBtnArrow = document.createElement("i");
-    menuOptionsBtnArrow.setAttribute("class", "fas fa-sort-down menu-arrow")
+    menuOptionsBtnArrow.setAttribute("class", "fas fa-sort-up menu-left-arrow")
     menuOptionsBtn.appendChild(menuOptionsBtnArrow);
 
+    //navigation button all cards
     let projectMenuItemOne = document.createElement("li");
     projectMenuItemOne.setAttribute("class", "project-menu-item")
     let projectMenuItemOneBtn = document.createElement("button");
+    projectMenuItemOne.setAttribute("onclick", "filterCards(this)");
+    projectMenuItemOne.id = "navButtonGeneral"+projectClass;
     projectMenuItemOneBtn.innerHTML = "Geral";
+    projectMenuItemOneBtn.className = "navBtn"+projectClass;
+    projectMenuItemOneBtn.style.backgroundColor = "rgba(117, 117, 117, 0.3)"
     let projectMenuItemOneBtnFlag = document.createElement("li");
     projectMenuItemOneBtnFlag.setAttribute("class", "fas fa-flag general-flag menu-flag");
     projectMenuItemOneBtn.appendChild(projectMenuItemOneBtnFlag);
     projectMenuItemOne.appendChild(projectMenuItemOneBtn);
     projectMenu.appendChild(projectMenuItemOne);
 
+    //navigation button card to do
     let projectMenuItemTwo = document.createElement("li");
     projectMenuItemTwo.setAttribute("class", "project-menu-item");
     let projectMenuItemTwoBtn = document.createElement("button");
+    projectMenuItemTwoBtn.setAttribute("onclick", "filterCards(this)");
+    projectMenuItemTwoBtn.id = "navButtonToDo"+projectClass;
     projectMenuItemTwoBtn.innerHTML = "Para fazer";
+    projectMenuItemTwoBtn.className = "navBtn"+projectClass;
     let projectMenuItemTwoBtnFlag = document.createElement("li");
     projectMenuItemTwoBtnFlag.setAttribute("class", "fas fa-flag todo-flag menu-flag");
     projectMenuItemTwoBtn.appendChild(projectMenuItemTwoBtnFlag);
     projectMenuItemTwo.appendChild(projectMenuItemTwoBtn);
     projectMenu.appendChild(projectMenuItemTwo);
 
+    //navigation button card doing
     let projectMenuItemThree = document.createElement("li");
     projectMenuItemThree.setAttribute("class", "project-menu-item");
     let projectMenuItemThreeBtn = document.createElement("button");
+    projectMenuItemThree.setAttribute("onclick", "filterCards(this)");
+    projectMenuItemThreeBtn.className = "navBtn"+projectClass;
+    projectMenuItemThree.id = "navButtonDoing"+projectClass;
     projectMenuItemThreeBtn.innerHTML = "Em andamento";
     let projectMenuItemThreeBtnFlag = document.createElement("li");
     projectMenuItemThreeBtnFlag.setAttribute("class", "fas fa-flag doing-flag menu-flag");
@@ -209,9 +254,13 @@ btnNewProject.addEventListener("click", () => {
     projectMenuItemThree.appendChild(projectMenuItemThreeBtn);
     projectMenu.appendChild(projectMenuItemThree);
 
+    //navigation button card done
     let projectMenuItemFour = document.createElement("li");
     projectMenuItemFour.setAttribute("class", "project-menu-item");
     let projectMenuItemFourBtn = document.createElement("button");
+    projectMenuItemFour.setAttribute("onclick", "filterCards(this)");
+    projectMenuItemFourBtn.className = "navBtn"+projectClass;
+    projectMenuItemFour.id = "navButtonDone"+projectClass;
     projectMenuItemFourBtn.innerHTML = "Conquistada";
     let projectMenuItemFourBtnFlag = document.createElement("li");
     projectMenuItemFourBtnFlag.setAttribute("class", "fas fa-flag done-flag menu-flag");
@@ -219,22 +268,91 @@ btnNewProject.addEventListener("click", () => {
     projectMenuItemFour.appendChild(projectMenuItemFourBtn);
     projectMenu.appendChild(projectMenuItemFour);
 
-    //Example
-    // console.log(document.querySelectorAll("."+projectClass))
+    //Show cards on menu
+    let subMenu = document.getElementById("projectMenu"+projectClass).childNodes;
+    for (let i = 1; i < subMenu.length; i++){
+        subMenu[i].style.display = "block";
+    }
+
 })
 
-//Show/hide project menu
-function showOrHideMenu(btnSelectedId) {
+//Filter cards from the button in the menu
+function filterCards (navBtnSelectedId) {
+    let cardBtn = navBtnSelectedId.id;
+    let selectedNavBtn = cardBtn.substr(0, 13) ////navButton: Gene - ToDo - Doin - Done
+    let currentProjectClass = cardBtn.substr(-10);
+    let listOfCards = document.querySelectorAll(".content-card"+currentProjectClass);
+    let listOfBtn = document.querySelectorAll(".navBtn"+currentProjectClass);
+
+    for (let i = 0; i < listOfCards.length; i++){
+        console.log(listOfCards[i])
+        listOfCards[i].style.display = "none";
+        listOfCards[i].style.width = "20vw"
+        listOfBtn[i].style.backgroundColor = "rgba(117, 117, 117, 0.08)"
+    } listOfBtn[3].style.backgroundColor = "rgba(117, 117, 117, 0.08)"
+
+    switch (selectedNavBtn) {
+        case "navButtonGene":
+        for (let i = 0; i < listOfCards.length; i++){
+            listOfCards[i].style.display = "block";
+        }
+        listOfBtn[0].style.backgroundColor = "rgba(117, 117, 117, 0.3)"
+        break;
+
+        case "navButtonToDo":
+        listOfCards[0].style.display = "block";
+        listOfCards[0].style.width = "50vw"
+        listOfBtn[1].style.backgroundColor = "rgba(117, 117, 117, 0.3)"
+        break;
+
+        case "navButtonDoin":
+        listOfCards[1].style.display = "block";
+        listOfCards[1].style.width = "50vw"
+        listOfBtn[2].style.backgroundColor = "rgba(117, 117, 117, 0.3)"
+        break;
+
+        case "navButtonDone":
+        listOfCards[2].style.display = "block";
+        listOfCards[2].style.width = "50vw"
+        listOfBtn[3].style.backgroundColor = "rgba(117, 117, 117, 0.3)"
+        break;
+    }
+}
+
+//Show/hide project menu/project view
+function showOrHideMenuProject(btnSelectedId) {
     let projectBtnId = btnSelectedId.id;
+    let currentProjectClass = projectBtnId.substr(-10);
+    let projectCards = document.getElementById(currentProjectClass);
     let project = document.getElementById(projectBtnId);
     let projectMenuItems = Array.from(project.parentElement.children).slice(1)
-    if (project.childNodes[1].classList.contains("fa-sort-down")){
-        project.childNodes[1].setAttribute("class", "fas fa-sort-up menu-arrow");
+    let arrowDirection = project.childNodes[1].classList.contains("fa-sort-down");
+
+
+    //Hide all project cards
+    for (let i = 0; i<randomClassList.length; i++){
+        document.getElementById(randomClassList[i]).style.display = "none";
+    }
+
+    //Hide all submenu
+    let allBtnArrow = document.querySelectorAll(".menu-left-arrow")
+    for (let i = 0; i<allBtnArrow.length; i++){
+        allBtnArrow[i].setAttribute("class", "fas fa-sort-down menu-left-arrow")
+    }
+    let allMenuItems = document.querySelectorAll(".project-menu-item");
+    for (let i = 0; i<allMenuItems.length;i++){
+        allMenuItems[i].style.display = "none";
+    }
+
+    if (arrowDirection == true){
+        project.childNodes[1].setAttribute("class", "fas fa-sort-up menu-left-arrow");
+        projectCards.style.display = "flex";
         for (let i = 0; i < projectMenuItems.length; i++){
             projectMenuItems[i].style.display = "block"
         }
     } else{
-        project.childNodes[1].setAttribute("class", "fas fa-sort-down menu-arrow");
+        project.childNodes[1].setAttribute("class", "fas fa-sort-down menu-left-arrow");
+        projectCards.style.display = "none";
         for (let i = 0; i < projectMenuItems.length; i++){
             projectMenuItems[i].style.display = "none"
         }
@@ -242,6 +360,8 @@ function showOrHideMenu(btnSelectedId) {
 }
 
 //ADD new task
+//**FIX To implement: erase input if taskDescript is hide, and hide if click outside it
+//Every task should be identified?
 function addTask (card, btnflag, inputDescription, taskDescription) {
     document.addEventListener('keydown', function(k){
         if(k.key == "Enter"){
@@ -261,14 +381,13 @@ function addTask (card, btnflag, inputDescription, taskDescription) {
             description.innerHTML = inputDescription.value;
             newTask.appendChild(description);
 
-            showOrHideDisplay(taskDescription)
+            showOrHideDisplay(taskDescription);
             inputDescription.value = "";
         }
     }
 });
 }
 
-//**To implement: erase input if taskDescript is hide, and hide if click outside it*****/
 function btnAddNewTask(btnPlusSelected){
     let btnPLusId = btnPlusSelected.id; 
     let typeOfNewTask = btnPLusId.substr(0, 13); //new-task-: todo, doin, done
