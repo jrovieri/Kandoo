@@ -1,0 +1,108 @@
+/* Projects menu */
+.project-menu-item {
+    display: none;
+    text-align: right;
+}
+
+.project-menu-item button{
+    border-bottom: 0.3em solid var(--main-white);
+    font-weight: bold;
+    text-align: right;
+    font-size: 0.9em;
+    background-color: rgba(117, 117, 117, 0.08);
+}
+
+.menu-left-arrow {
+    padding-bottom: 0;
+    padding-top: 0.5em;
+}
+
+.project-menu-item .fa-flag {
+    margin-left: 0.5vw;
+    font-size: 1.2em;
+}
+
+.project-title {
+    margin: 0 auto;
+    position: absolute;
+    top: 10vh;
+}
+
+/* task card */
+.content-card {
+    padding: 0.5em;
+    margin-top: 2em;
+    width: 20vw;
+    height: 72vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 0.09em solid black;
+    border-radius: 1em;
+    background-color: var(--main-grey);
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.title-card{
+    position: relative;
+    margin:1vh auto;
+}
+
+.title-card h3 {
+    margin: 0 0 2vh 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+.button-plus {
+    padding: 0.5em;
+    position: absolute;
+    top: -1.9vh;
+    right: 0vw;
+}
+
+.fa-plus-circle {
+    color: var(--main-red);
+}
+
+.newTaskDescription {
+    display: none;
+    margin: 3vh 1vh 1vh 1vh;
+}
+
+.newTaskDescription input {
+    width: 80%;
+    transform:translateY(-25%);
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.task {
+    display: flex;
+    margin: 3vh 2vh 0 0;
+}
+
+.task-flag {
+    font-size: 1.6em;
+} 
+
+.doing-flag {
+    color: yellow;
+}
+
+.todo-flag {
+    color: red;
+}
+
+.done-flag {
+    color: green;
+}

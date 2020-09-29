@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kandoo</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/task-page.css">
+</head>
+<body id="task-page">
+    <header>
+        <a href="/profile-page.html" class="home-icon icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <i class="fas fa-flag"></i><h1>Kandoo</h1>
+        <ul id="nav-left">
+            <li><button id="btn-settings" class="menu-icon icon">
+                <i class="fas fa-sliders-h"></i></button>
+            </li>
+            <li>
+                <button id="btn-sign-out" class="menu-icon icon">
+                <i class="fas fa-sign-out-alt"></i></button>
+            </li>
+        </ul>
+
+    </header>
+
+    <section class="lateral-menu" id="lateral-menu-left">
+        <h3>Projetos</h3>
+        <nav>
+            <ul id="projects-list">
+            </ul>
+        </nav>
+    </section>
+
+    <section id="content">
+    </section>
+
+    <section class="lateral-menu" id="lateral-menu-right">
+        <h3><i class="fas fa-caret-right lateral-menu-arrow"></i>Configurações</h3>
+        <ul>
+            <li>
+                <button id="new-project" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Novo projeto
+                </button>
+            </li>
+
+            <li>
+                <button id="edit-project" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Editar projeto
+                    <i class="fas fa-sort-down menu-right-arrow"></i>
+                </button>
+            </li>
+
+            <li>
+                <button id="delete-current-project" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Excluir projeto atual
+                </button>
+            </li>
+
+            <li>
+                <button id="add-member" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Adicionar membro
+                </button>
+            </li>
+
+            <li>
+                <button id="members-list" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Lista de membros
+                    <i class="fas fa-sort-down menu-right-arrow"></i>
+                </button>
+            </li>
+
+            <li>
+                <button id="archive-current-project" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Arquivar projeto atual
+                </button>
+            </li>
+
+            <li>
+                <button id="archived-projects" class="setting-menu-options">
+                    <i class="fas fa-flag general-flag menu-flag"></i>
+                    Projetos arquivados
+                    <i class="fas fa-sort-down menu-right-arrow"></i>
+                </button>
+            </li>
+        </ul>
+    </section>
+
+<script src="script/main.js"></script>
+<script src="script/task-page.js"></script>
+<script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+</body>
+</html>

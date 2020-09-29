@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Overlock&display=swap');
 
 :root {
-    --red-hover: rgba(255, 5, 5, 0.85);
     --main-red: rgba(245, 5, 5, 0.85);
     --main-white: #FFFFFF;
-    --main-grey: rgba(136, 132, 132, 0.05);
     --main-blue: #002B99;
-    --menu-item: rgba(117, 117, 117, 0.2);
 }
 
 * {
@@ -78,9 +75,9 @@ button {
 .lateral-menu {
     position: absolute;
     height: 90vh;
-    width: 12vw;
+    width: 14vw;
     text-align: center;
-    background-color: var(--main-grey);
+    background-color:  rgba(136, 132, 132, 0.05);
 }
 
 .lateral-menu h3 {
@@ -94,27 +91,22 @@ button {
 
 .lateral-menu button {
     width: 100%;
-    background-color: transparent;
+    font-weight: bold;
     font-size: 1em;
 }
 
 .menu-options {
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 95%;
     text-align: left;
 }
 
-.menu-arrow {
+.menu-arrow, .menu-left-arrow {
     margin-left: 1vw;
     padding-bottom: 0.3em;
     color: black;
     font-size: 1.5em;
-}
-
-.fa-sort-up {
-    padding-bottom: 0;
-    padding-top: 0.5em;
 }
 
 /*Settings menu*/
@@ -122,4 +114,60 @@ button {
     z-index: 5;
     right: 0;
     display: none;
+}
+
+.lateral-menu-arrow {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    color: black;
+    font-size: 1.5em;
+}
+
+#lateral-menu-right h3 {
+    display: flex;
+    align-items: center;
+}
+
+#lateral-menu-right li {
+    margin-right: 0.3vw;
+}
+
+.setting-menu-options {
+    display: flex;
+    align-items: center;
+    padding: 0.6em;
+    border-bottom: 0.3em solid var(--main-white);
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.9rem !important;
+    background:rgba(117, 117, 117, 0.08);
+}
+
+.menu-right-arrow {
+    margin-left: 0.5vw;
+    font-size: 1.5em;
+    color: black;  
+}
+
+.setting-menu-options .fa-sort-down {
+    padding-bottom: 0.3em;
+}
+
+.setting-menu-options .fa-sort-up {
+    padding-top: 0.4em;
+}
+
+/* Content */
+#content, .content-project {
+    display: flex;
+    justify-content: space-around;
+    margin: 2vh auto;
+    height: 80vh;
+    width: 70vw;
+    border-radius: 0.5em;
+}
+
+.menu-flag {
+    margin-right: 0.5vw;
+    font-size: 1.3em;
 }
