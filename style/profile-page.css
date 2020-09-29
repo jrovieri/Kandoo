@@ -5,13 +5,16 @@
 }
 
 .profile-content h2 {
-    margin: 5vh auto;
-    width: 100%;
+    margin: 5vh;
     text-align: center;
 }
 
 .profile-content h3 {
     margin-bottom: 0;
+}
+
+.red-line {
+    border-top: 0.01px solid rgba(245, 5, 5, 0.85);
 }
 
 .profile-content ul {
@@ -30,20 +33,4 @@
 
 .black-line {
     margin-block-start: 0em;
-}
-
-.lateral-menu-arrow{
-    margin-left: 0.5vw;
-    margin-right: 1vw;
-    color: black;
-    font-size: 1.5em;
-}
-
-.lateral-menu h3 {
-    display: flex;
-    align-items: center;
-}
-
-.red-line {
-    border-top: 0.01px solid rgba(245, 5, 5, 0.85);
 }
