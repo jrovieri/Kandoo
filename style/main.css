@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock&display=swap');
+
+:root {
+    --main-red: rgba(245, 5, 5, 0.85);
+    --main-white: #FFFFFF;
+    --main-blue: #002B99;
+}
+
+* {
+    font-family: 'Overlock', sans-serif;
+}
+
+body{
+    margin: 10vh 0 0 0;
+    display: flex;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    left: 0px;
+    right: 0;
+    top: 0px;
+    background: var(--main-red);
+}
+
+header h1 {
+    font-weight: normal;
+    font-size: 2.3em;
+    color: var(--main-white); 
+}
+
+header ul li {
+    list-style: none;
+}
+
+.home-icon {
+    position: absolute;
+    left: 0;
+}
+
+.icon {
+    padding: 1em;
+    background-color: transparent;
+}
+
+.fas, .far {
+    font-size: 2em;
+    color: var(--main-white);
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#nav-left {
+    position: absolute;
+    right: 0;
+    padding-inline-start: 0;
+}
+
+#nav-left li{
+    display: inline;
+}
+
+/*Lateral menu*/
+.lateral-menu {
+    position: absolute;
+    height: 90vh;
+    width: 14vw;
+    text-align: center;
+    background-color:  rgba(136, 132, 132, 0.05);
+}
+
+.lateral-menu h3 {
+    margin: 1em 0 0 0;
+}
+
+.lateral-menu ul {
+    list-style: none;
+    padding-inline-start: 0.5em;
+}
+
+.lateral-menu button {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.menu-options {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    text-align: left;
+}
+
+.menu-arrow, .menu-left-arrow {
+    margin-left: 1vw;
+    padding-bottom: 0.3em;
+    color: black;
+    font-size: 1.5em;
+}
+
+/*Settings menu*/
+#lateral-menu-right {
+    z-index: 5;
+    right: 0;
+    display: none;
+}
+
+.lateral-menu-arrow {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    color: black;
+    font-size: 1.5em;
+}
+
+#lateral-menu-right h3 {
+    display: flex;
+    align-items: center;
+}
+
+#lateral-menu-right li {
+    margin-right: 0.3vw;
+}
+
+.setting-menu-options {
+    display: flex;
+    align-items: center;
+    padding: 0.6em;
+    border-bottom: 0.3em solid var(--main-white);
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.9rem !important;
+    background:rgba(117, 117, 117, 0.08);
+}
+
+.menu-right-arrow {
+    margin-left: 0.5vw;
+    font-size: 1.5em;
+    color: black;  
+}
+
+.setting-menu-options .fa-sort-down {
+    padding-bottom: 0.3em;
+}
+
+.setting-menu-options .fa-sort-up {
+    padding-top: 0.4em;
+}
+
+/* Content */
+#content, .content-project {
+    display: flex;
+    justify-content: space-around;
+    margin: 2vh auto;
+    height: 80vh;
+    width: 70vw;
+    border-radius: 0.5em;
+}
+
+.menu-flag {
+    margin-right: 0.5vw;
+    font-size: 1.3em;
+}
