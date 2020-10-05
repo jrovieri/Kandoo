@@ -403,3 +403,10 @@ function btnAddNewTask(btnPlusSelected){
         break;
     }
 }
+
+
+//Modal: adicionar novo membro
+const newMemberModal = document.getElementById("add-member-modal");
+function addNewMemberModal () {
+    newMemberModal.style.display = "flex";
+}
