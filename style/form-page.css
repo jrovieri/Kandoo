@@ -63,3 +63,13 @@ button {
     color: var(--main-white);
     background-color: #8a1818;
 }
+
+.links {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+a {
+    padding: 0.5em;
+}
