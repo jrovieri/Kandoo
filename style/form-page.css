@@ -1,8 +1,8 @@
-#signUp-page {
+body {
     justify-content: center;
 }
 
-#sign-up-form {
+form {
     align-items: center;
     margin: 0 auto;
     display: flex;
@@ -12,7 +12,7 @@
     background-color: rgba(245, 5, 5, 0.85);
 }
 
-#sign-up-form h1 {
+h1 {
     margin-bottom: 0;
     font-weight: normal;
     font-size: 2.3em;
@@ -20,11 +20,11 @@
     color: var(--main-white); 
 }
 
-#sign-up-form .fa-flag {
+.fa-flag {
     font-size: 1em;
 }
 
-#sign-up-form fieldset {
+fieldset {
     margin: auto;
     width: 20vw;
     border: none;
@@ -45,14 +45,14 @@
     font-size: 1.07em;
 }
 
-#sign-up-form input {
+input {
     width: 100%;
     border-radius: 1em;
     border: none;
     font-size: 1.2em;
 }
 
-#sign-up-form button {
+button {
     margin: 1.3em auto;
     display: flex;
     justify-content: center;
