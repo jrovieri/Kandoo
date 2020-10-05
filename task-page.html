@@ -22,7 +22,6 @@
                 <i class="fas fa-sign-out-alt"></i></button>
             </li>
         </ul>
-
     </header>
 
     <section class="lateral-menu" id="lateral-menu-left">
@@ -62,7 +61,7 @@
             </li>
 
             <li>
-                <button id="add-member" class="setting-menu-options">
+                <button id="add-member" class="setting-menu-options" onclick="addNewMemberModal()">
                     <i class="fas fa-flag general-flag menu-flag"></i>
                     Adicionar membro
                 </button>
@@ -91,6 +90,24 @@
                 </button>
             </li>
         </ul>
+    </section>
+
+
+    <!--Modal adicionar novo membro-->
+    <section class="modal-background" id="add-member-modal">
+        <form action="" class="modal-form">
+            <h2 class="modal-title">Novo membro</h2>
+            <label for="member-name">Nome</label>
+            <input type="text" name="member-name" required>
+
+            <label for="email">E-mail</label>
+            <input type="text" name="email" required>
+
+            <fieldset class="fieldset-btn">
+                <button id="add-member-btn" class="modal-save-btn" type="submit">Adicionar</button>
+                <button class="modal-reset-btn" type="reset">Descartar</button>
+            </fieldset>
+        </form>
     </section>
 
 <script src="script/main.js"></script>

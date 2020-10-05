@@ -106,3 +106,60 @@
 .done-flag {
     color: green;
 }
+
+/* Modal */
+.modal-background {
+    position: absolute;
+    display: none; 
+    justify-content: center;
+    width: 100vw;
+    height: 90vh;
+    z-index: 10;
+    background-color: rgba(223, 215, 215, 0.4);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30vw;
+    padding: 2em;
+    background-color:  rgba(199, 196, 196, 0.2);
+}
+
+.modal-title {
+    text-align: center;
+}
+
+.modal-form label {
+    margin-top: 5vh;
+}
+
+.modal-form input {
+    height: 5vh;
+    border: none;
+}
+
+.fieldset-btn {
+    margin: auto;
+    padding: auto;
+    border: none;
+}
+
+.fieldset-btn button {
+    margin: 5em 2.5em 0em 2.5em;
+    border: none;
+    padding: 1em;
+    width: 8vw;
+    font-size: 1em;
+}
+
+.modal-save-btn {
+    color: var(--main-white);
+    background-color:#2753c0;
+
+}
+
+.modal-reset-btn {
+    background-color: rgba(199, 196, 196, 0.5);
+}
