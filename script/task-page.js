@@ -1,3 +1,5 @@
+import * as projectView from './projectView.js';
+
 //Random class
 let randomClassList = []; //definitive list of classes (delete project/task: delete in array)
 let charactersList = "abcdefghijklmnopqrstuvwxyz0123456789"; 
@@ -24,6 +26,7 @@ const btnNewProject = document.getElementById("new-project");
 const content = document.getElementById("content");
 const contentProjects = document.querySelectorAll("content-project");
 
+/*
 btnNewProject.addEventListener("click", () => {
 
     //hiding other projects
@@ -410,3 +413,9 @@ const newMemberModal = document.getElementById("add-member-modal");
 function addNewMemberModal () {
     newMemberModal.style.display = "flex";
 }
+
+*/
+/**
+ * Event Listeners
+*/
+elements.project.add.addEventListener('click', projectView.addProject);
